@@ -1,4 +1,4 @@
-//Suzanne Irvine/Douglass Barr HNC Multimedia: Developing Multimedia Applications.  version 1.00  6/3/16 2pm
+//Suzanne Irvine/Douglass Barr HNC Multimedia: Developing Multimedia Applications.  version 1.1  20/3/16 3.30pm
 
 
 
@@ -70,7 +70,9 @@ function mouseClicked() {
           (mouseY > 285) &&
           (mouseY < (285 + 125)))
      {
-         println( "Hi")  //This tests the button to see if it works.
+//         println( "Hi")  //This tests the button to see if it works.
+         window.location.href = 'Blues.html';
+         
  
  }
  //This is the jazz button
@@ -79,7 +81,8 @@ function mouseClicked() {
           (mouseY > 425) &&
           (mouseY < (425 + 125)))
      {
-         println( "Hi")  //This tests the button to see if it works.
+//         println( "Hi")  //This tests the button to see if it works.
+         window.location.href = 'Jazz.html';
  
  }
     //This is the metal button
@@ -88,7 +91,8 @@ function mouseClicked() {
           (mouseY > 565) &&
           (mouseY < (565 + 125)))
      {
-         println( "Hi")  //This tests the button to see if it works.
+//         println( "Hi")  //This tests the button to see if it works.
+         window.location.href = 'Metal.html';
  
  }
     
