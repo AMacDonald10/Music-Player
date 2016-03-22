@@ -1,8 +1,11 @@
-//Suzanne Irvine/Douglass Barr HNC Multimedia: Developing Multimedia Applications.  version 1.1  20/3/16 3.30pm
+//Suzanne Irvine/Douglass Barr HNC Multimedia: Developing Multimedia Applications.  version 1.2  22/3/16 8.55am
 
 // general variables
 var BessieSong;
 var backgroundblue = 255; 
+var on = false;
+var bessietext = false;
+//var bessieplaying = false;
 
 function preload(){
     // song to preload
@@ -29,10 +32,9 @@ function setup() {
     playbutton = loadImage('Pictures/play.jpg');
     pausebutton = loadImage('Pictures/pause.jpg');
     Bessieplay = loadImage('Pictures/play.jpg');
+ 
     
-    //object variables to setup
-    
-    Bessieobject = new BessieSmithBlues();
+ 
 
     
 }
@@ -61,7 +63,8 @@ backgroundblue = map(mouseX, 0, windowWidth, 255, 100);
     rect(1310, 695, 50, 30);
     noFill();
     
-   
+
+    
     
 //    Artist images
     image(BessieImage, 235, 250, 100, 100);
@@ -81,122 +84,135 @@ backgroundblue = map(mouseX, 0, windowWidth, 255, 100);
     image(BackImage, 1112, 610, 50, 50);
     image(ForwardImage, 1312, 610, 50, 50);
     
+    // play/pause button
     
+    if (on) {
+    image(pausebutton, 270, 285, 30, 30)
+} else {
+    image(playbutton, 270, 285, 30, 30)
+}
 
+    
+    
+    // artist text information
+    if (bessietext) {
+        textFont("Georgia");
+        textSize(16);
+        fill(0);
+    text("Artist: Bessie Smith.", 110, 500);
+        noFill();
+} 
+    
+    
+    
+    
+    
 }
 
 function mouseClicked() {
-        if( (mouseX > 235) &&
+  if( (mouseX > 235) &&
           (mouseX < (235 + 100)) &&
           (mouseY > 250) &&
           (mouseY < (250 + 125)))
-     {
-        
- println( "Hi")  //This tests the button to see if it works.
- BessieSong.play();
- Bessieobject.display();
-//     Bessieplay.display();
- 
- }
-//    else if ( (mouseX > 235) &&
-//          (mouseX < (235 + 100)) &&
+     if(BessieSong.isPlaying() == false)
+    { 
+        println("Hi");
+        BessieSong.play();
+    }
+      else if( (mouseX > 235) &&
+          (mouseX < (235 + 100)) &&
+          (mouseY > 250) &&
+          (mouseY < (250 + 125)))
+     if(BessieSong.isPlaying() == true)
+    { 
+        println("Hi");
+        BessieSong.pause();
+    }
+
+
+//    
+//   if( (mouseX > 455) &&
+//          (mouseX < (455 + 100)) &&
 //          (mouseY > 250) &&
 //          (mouseY < (250 + 125)))
-//    {
-//        BessieSong.pause();
-//         println( "Bye");
-//    }
-
-    
-   if( (mouseX > 455) &&
-          (mouseX < (455 + 100)) &&
-          (mouseY > 250) &&
-          (mouseY < (250 + 125)))
-     {
-        
- println( "Hi")  //This tests the button to see if it works.
- }
-  if( (mouseX > 675) &&
-          (mouseX < (675 + 100)) &&
-          (mouseY > 250) &&
-          (mouseY < (250 + 125)))
-     {
-        
- println( "Hi")  //This tests the button to see if it works.
- }
-     if( (mouseX > 895) &&
-          (mouseX < (895 + 100)) &&
-          (mouseY > 250) &&
-          (mouseY < (250 + 125)))
-     {
-        
- println( "Hi")  //This tests the button to see if it works.
- }
-    if( (mouseX > 1115) &&
-          (mouseX < (1115 + 100)) &&
-          (mouseY > 250) &&
-          (mouseY < (250 + 125)))
-     {
-        
- println( "Hi")  //This tests the button to see if it works.
- }
-    if( (mouseX > 1100) &&
-          (mouseX < (1100 + 70)) &&
-          (mouseY > 600) &&
-          (mouseY < (600 + 75)))
-     {
-        window.location.href = 'Metal.html'
- println( "Hi")  //This tests the button to see if it works.
- }
-     if( (mouseX > 1200) &&
-          (mouseX < (1200 + 75)) &&
-          (mouseY > 600) &&
-          (mouseY < (600 + 75)))
-     {
-        window.location.href = 'index.html'
- println( "Hi")  //This tests the button to see if it works.
- }
-    if( (mouseX > 1300) &&
-          (mouseX < (1300 + 75)) &&
-          (mouseY > 600) &&
-          (mouseY < (600 + 75)))
-     {
-        window.location.href = 'Jazz.html'
- println( "Hi")  //This tests the button to see if it works.
- }
+//     {
+//        
+// println( "Hi")  //This tests the button to see if it works.
+// }
+//  if( (mouseX > 675) &&
+//          (mouseX < (675 + 100)) &&
+//          (mouseY > 250) &&
+//          (mouseY < (250 + 125)))
+//     {
+//        
+// println( "Hi")  //This tests the button to see if it works.
+// }
+//     if( (mouseX > 895) &&
+//          (mouseX < (895 + 100)) &&
+//          (mouseY > 250) &&
+//          (mouseY < (250 + 125)))
+//     {
+//        
+// println( "Hi")  //This tests the button to see if it works.
+// }
+//    if( (mouseX > 1115) &&
+//          (mouseX < (1115 + 100)) &&
+//          (mouseY > 250) &&
+//          (mouseY < (250 + 125)))
+//     {
+//        
+// println( "Hi")  //This tests the button to see if it works.
+// }
+//    if( (mouseX > 1100) &&
+//          (mouseX < (1100 + 70)) &&
+//          (mouseY > 600) &&
+//          (mouseY < (600 + 75)))
+//     {
+//        window.location.href = 'Metal.html'
+// println( "Hi")  //This tests the button to see if it works.
+// }
+//     if( (mouseX > 1200) &&
+//          (mouseX < (1200 + 75)) &&
+//          (mouseY > 600) &&
+//          (mouseY < (600 + 75)))
+//     {
+//        window.location.href = 'index.html'
+// println( "Hi")  //This tests the button to see if it works.
+// }
+//    if( (mouseX > 1300) &&
+//          (mouseX < (1300 + 75)) &&
+//          (mouseY > 600) &&
+//          (mouseY < (600 + 75)))
+//     {
+//        window.location.href = 'Jazz.html'
+// println( "Hi")  //This tests the button to see if it works.
+// }
 }
 
-function BessieSmithBlues(){
-    // object for Bessie Smith button
+
     
-    this.display = function() {
-        if( (mouseX > 235) &&
+function mousePressed() {
+    // this function controls the play/pause button
+    
+    if( (mouseX > 235) &&
           (mouseX < (235 + 100)) &&
           (mouseY > 250) &&
           (mouseY < (250 + 125)))
-         {
-        image(playbutton, 245, 260, 50, 50);
-    }
-        else if( (mouseX > 235) &&
-          (mouseX < (235 + 100)) &&
-          (mouseY > 250) &&
-          (mouseY < (250 + 125)))
-        {
-            image(pausebutton, 245, 260, 50, 50);
-        }
+    { on = !on;
+     bessietext = !bessietext
+ 
     }
 
-//    this.play = function() {
-//         if( (mouseX > 235) &&
-//          (mouseX < (235 + 100)) &&
-//          (mouseY > 250) &&
-//          (mouseY < (250 + 125)))
-//         {
-//             BessieSong.play;
-//         }
-//        else {
-//            BessieSong.stop;
-//        }
-//        
-    
+
+}
+
+function isPlaying() {
+    if(BessieSong.isPlaying() == true)
+    {
+        BessieSong.pause
+    }
+    else if(BessieSong.isPlaying() == false)
+    {
+        BessieSong.play
+    }
 }
