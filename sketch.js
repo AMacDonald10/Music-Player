@@ -1,15 +1,19 @@
-//Suzanne Irvine/Douglass Barr HNC Multimedia: Developing Multimedia Applications.  version 1.1  20/3/16 3.30pm
+//Suzanne Irvine/Douglass Barr HNC Multimedia: Developing Multimedia Applications.  version 1.3  2/4/16 5.00pm
+
+
+var CompanyImage;
+var BluesImage;
+var JazzImage;
+var MetalImage;
+var CompanyText;
 
 
 
-function setup(){
+function setup() {
     
-    createCanvas(windowWidth, windowHeight);  //This sets the canvas to the browser height and width.
-    CompanyImage = loadImage('Pictures/noalbum.jpg');
-    BluesImage = loadImage('Pictures/Blues.jpg');
-    JazzImage = loadImage('Pictures/Jazz.jpg');
-    MetalImage = loadImage('Pictures/Metal.png');
-//These are the images being loaded.
+    //This sets the canvas to the browser height and width.
+    createCanvas(windowWidth, windowHeight);  
+
 }
 
 function draw(){
@@ -22,26 +26,26 @@ textSize(128);
 fill(250);
         text("Douglas Records", 195, 150);
 noFill()
-//Main company image
+Main company image
  image(CompanyImage, 150, 285, 276, 182);
-    
+   
     
     // Boxes containing text
     fill(157,32,83);
-    rect(150, 515, 276, 182);
+    rect(150, 505, 290, 182);
     rect(890, 322, 300, 60);
     rect(890, 458, 300, 60);
     rect(890, 598, 300, 60);
     noFill();
     
     
-    // Text box with company information.  Aligned below the company image.
+     Text box with company information.  Aligned below the company image.
        textSize(14);
     fill(0, 0, 0);
     text("Welcome to Douglas Records.  This site will allow you to enjoy some of the work our artists have created.  Our music spans several genres of music and we at Douglas Records are proud of them all.", 160, 555, 265, 265);
     noFill();
     
-    // Images that will be buttons.
+     Images that will be buttons.
  image(BluesImage, 700, 285, 125, 125);
     image(JazzImage, 700, 425, 125, 125);
     image(MetalImage, 700, 565, 125, 125);
@@ -135,3 +139,5 @@ function mouseOver() {
     }
     
 }
+
+
